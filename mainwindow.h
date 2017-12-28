@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QUrlQuery>
+
+class NetworkManager;
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,18 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    NetworkManager *netman;
+
+    // настройки - пока тупо в виде флагов
+    bool isRecursive = {false};
+    bool clearOnStart = {true};
+
+private slots:
+    void slotGo();
+    void slotError();
+    //void slotDownloadProgress(qint64, qint64);
+    void slotDone(const QString&, const QString& requestParam);
+
 };
 
 #endif // MAINWINDOW_H

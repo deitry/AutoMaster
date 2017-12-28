@@ -4,9 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+            network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG   += c++11
 
 TARGET = automaster
 TEMPLATE = app
@@ -23,12 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
+LIBS += -L/usr/lib/zlibrary/ui -lz
+
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    networkmanager.cpp \
+    lmrequestfactory.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    networkmanager.h \
+    lmrequestfactory.h \
+    gziptreater.h
 
 FORMS += \
         mainwindow.ui
