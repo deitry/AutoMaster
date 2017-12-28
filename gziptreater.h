@@ -1,0 +1,4 @@
+#ifndef GZIPTREATER_H
+#define GZIPTREATER_H
+
+#endif // GZIPTREATER_H
